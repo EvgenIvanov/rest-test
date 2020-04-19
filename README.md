@@ -73,3 +73,25 @@ Settings file to let you immedietly code in VSCode with [VSCode ObjectScript plu
 Config file if you want to debug with VSCode ObjectScript
 
 [Read about all the files in this artilce](https://community.intersystems.com/post/dockerfile-and-friends-or-how-run-and-collaborate-objectscript-projects-intersystems-iris)
+
+### индивидуальные настройки 
+macOS High Sierra
+установлена VirtualBox с настроенными VM
+installed Docker Toolbox on macOS (https://docs.docker.com/toolbox/toolbox_install_mac/)
+склонирован [репозиторий](https://github.com/intersystems-community/objectscript-docker-template.git)
+
+
+docker-machine start                    # Start virtual machine for docker
+docker-machine env                      # It's helps to get environment variables
+eval "$(docker-machine env default)"    # Set environment variables
+
+docker-machine ip default               # после запуска машины узнаем IP адрес к которому подключаться
+прописать IP адрес в settings.json      # прописываем полученный адрес в файле настроек
+
+docker-compose -f "docker-compose.yml" up -d --build    # сборка/запуск docker-а
+docker-compose exec iris iris session iris              # запуск терминала IRIS
+
+
+docker-machine rm -f default                        # удаление VM "defult"
+docker-machine create -d virtualbox default         # создание VM "default"
+docker-machine ls                                   # просмотр запущенных docker-ов
