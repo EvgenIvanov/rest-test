@@ -11,6 +11,6 @@
         "internalPort": 52773
       }
     },
-    "objectscript.conn.active": false
+    "objectscript.conn.active": true
 
 }
